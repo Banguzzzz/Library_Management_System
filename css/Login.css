@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-image: url("../assets/10723.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: image("../assets/10723.jpg");
+}
+
+h1 {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.form {
+  position: absolute;
+  width: 400px;
+  height: 450px;
+  border-radius: 10px;
+  padding: 30px;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.19);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.2px);
+  -webkit-backdrop-filter: blur(9.2px);
+  border: 1px solid rgba(255, 255, 255, 0.36);
+}
+
+.label {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  margin-top: 30px;
+}
+
+.label2 {
+  font-size: 15px;
+  font-weight: 300;
+  color: #000000;
+  margin-top: 30px;
+}
+
+.textField {
+  color: #000000;
+  width: 100%;
+  font-size: 20px;
+  padding-top: 15px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid rgb(0, 0, 0);
+  background-color: #33333300;
+}
+
+input:focus {
+  outline: none;
+}
+
+.submitBtn {
+  width: 100%;
+  height: 50px;
+  background-color: #00c000;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 900;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 30px;
+}
+
+.submitBtn:hover {
+  background-color: #008600;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.check {
+  margin-top: 20px;
+  font-size: 18px;
+}

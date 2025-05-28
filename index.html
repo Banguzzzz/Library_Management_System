@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
+              'gradient': 'gradient 8s linear infinite',
+              'shimmer': 'shimmer 3s ease-in-out infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                '33%': { transform: 'translateY(-10px) rotate(2deg)' },
+                '66%': { transform: 'translateY(5px) rotate(-1deg)' }
+              },
+              'pulse-glow': {
+                '0%, 100%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)' },
+                '50%': { boxShadow: '0 0 40px rgba(59, 130, 246, 0.6), 0 0 60px rgba(59, 130, 246, 0.3)' }
+              },
+              gradient: {
+                '0%, 100%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' }
+              },
+              shimmer: {
+                '0%, 100%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <title>BASC Library Management System</title>
+  </head>
+  <body class="bg-slate-950 text-white overflow-x-hidden selection:bg-blue-500/30">
+    
+    <!-- Animated Background -->
+    <div class="fixed inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 bg-[length:400%_400%] animate-gradient"></div>
+    <div class="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_70%)]"></div>
+    
+    <!-- Floating Particles -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-20 left-10 w-2 h-2 bg-blue-400/50 rounded-full animate-float"></div>
+      <div class="absolute top-40 right-20 w-3 h-3 bg-purple-400/40 rounded-full animate-float" style="animation-delay: 2s;"></div>
+      <div class="absolute bottom-40 left-20 w-1 h-1 bg-cyan-400/60 rounded-full animate-float" style="animation-delay: 4s;"></div>
+      <div class="absolute top-1/3 right-1/3 w-2 h-2 bg-emerald-400/40 rounded-full animate-float" style="animation-delay: 1s;"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full backdrop-blur-xl bg-slate-900/80 border-b border-white/10 text-white py-4 px-6 shadow-2xl flex items-center z-50 transition-all duration-300">
+      <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-xl font-bold shadow-lg">
+        📚
+      </div>
+      <h1 class="text-xl md:text-2xl font-bold ml-4 flex-1 tracking-tight bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+        BASC Library
+      </h1>
+      <nav class="hidden md:flex space-x-8 text-sm font-medium">
+        <a href="#home" class="relative px-4 py-2 rounded-full hover:bg-white/10 transition-all duration-300 hover:text-blue-300 group">
+          <span class="relative z-10">Home</span>
+          <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </a>
+        <a href="#update" class="relative px-4 py-2 rounded-full hover:bg-white/10 transition-all duration-300 hover:text-blue-300 group">
+          <span class="relative z-10">Updates</span>
+          <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </a>
+        <a href="#about" class="relative px-4 py-2 rounded-full hover:bg-white/10 transition-all duration-300 hover:text-blue-300 group">
+          <span class="relative z-10">About</span>
+          <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </a>
+        <a href="#contact" class="relative px-4 py-2 rounded-full hover:bg-white/10 transition-all duration-300 hover:text-blue-300 group">
+          <span class="relative z-10">Contact</span>
+          <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </a>
+      </nav>
+      <button class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-white/10 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed top-20 left-0 w-full backdrop-blur-xl bg-slate-900/95 border-b border-white/10 text-white py-6 px-6 z-40">
+      <nav class="flex flex-col space-y-4 text-center">
+        <a href="#home" class="py-3 px-6 rounded-xl hover:bg-white/10 transition-all duration-300 hover:text-blue-300">Home</a>
+        <a href="#update" class="py-3 px-6 rounded-xl hover:bg-white/10 transition-all duration-300 hover:text-blue-300">Updates</a>
+        <a href="#about" class="py-3 px-6 rounded-xl hover:bg-white/10 transition-all duration-300 hover:text-blue-300">About</a>
+        <a href="#contact" class="py-3 px-6 rounded-xl hover:bg-white/10 transition-all duration-300 hover:text-blue-300">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative flex flex-col md:flex-row items-center justify-center min-h-screen pt-20 pb-10 px-6 md:px-16 gap-12 text-white">
+      <!-- Hero Image -->
+      <div class="relative group">
+        <div class="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div class="relative w-80 h-80 md:w-96 md:h-96 bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm rounded-3xl flex items-center justify-center text-8xl animate-float border border-white/10">
+          📚
+        </div>
+      </div>
+      
+      <!-- Hero Content -->
+      <div class="max-w-2xl text-center md:text-left space-y-6">
+        <h2 class="text-4xl md:text-7xl font-black tracking-tight leading-tight">
+          <span class="bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent animate-shimmer bg-[length:200%_200%]">
+            Welcome to
+          </span>
+          <br>
+          <span class="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-shimmer bg-[length:200%_200%]" style="animation-delay: 0.5s;">
+            BASC Library
+          </span>
+        </h2>
+        <p class="text-lg md:text-xl leading-relaxed text-slate-300 max-w-xl">
+          Discover a world of knowledge with our extensive collection of books, journals, and digital resources. Experience the future of learning.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+          <a href="pages/Login.php">
+            <button class="group relative px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 bg-[length:200%_200%] animate-gradient font-semibold rounded-2xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1">
+              <span class="relative z-10 flex items-center gap-2">
+                Explore Now
+                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+              </span>
+            </button>
+          </a>
+          <button class="px-8 py-4 backdrop-blur-sm bg-white/10 border border-white/20 font-semibold rounded-2xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+            Learn More
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Updates Section -->
+    <section id="update" class="relative py-32 px-6 md:px-16">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+            Latest Updates
+          </h2>
+          <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+            Stay up to date with our newest additions and featured collections
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="group relative">
+            <div class="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+            <div class="relative backdrop-blur-xl bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2">
+              <div class="text-5xl mb-4">📖</div>
+              <h3 class="text-2xl font-bold mb-3 text-white">The Catcher in the Rye</h3>
+              <p class="text-slate-400 mb-4">Newly added to our collection! Dive into this timeless coming-of-age story.</p>
+              <div class="flex items-center text-sm text-blue-400">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                Available Now
+              </div>
+            </div>
+          </div>
+          
+          <div class="group relative">
+            <div class="absolute -inset-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+            <div class="relative backdrop-blur-xl bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2">
+              <div class="text-5xl mb-4">📚</div>
+              <h3 class="text-2xl font-bold mb-3 text-white">To Kill a Mockingbird</h3>
+              <p class="text-slate-400 mb-4">Now available for borrowing! Experience this powerful tale of justice and morality.</p>
+              <div class="flex items-center text-sm text-purple-400">
+                <span class="w-2 h-2 bg-yellow-500 rounded-full mr-2 animate-pulse"></span>
+                Ready to Borrow
+              </div>
+            </div>
+          </div>
+          
+          <div class="group relative">
+            <div class="absolute -inset-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+            <div class="relative backdrop-blur-xl bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2">
+              <div class="text-5xl mb-4">🔮</div>
+              <h3 class="text-2xl font-bold mb-3 text-white">1984</h3>
+              <p class="text-slate-400 mb-4">Explore this classic dystopian novel that remains strikingly relevant today.</p>
+              <div class="flex items-center text-sm text-cyan-400">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
+                Featured Read
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="relative py-32 px-6 md:px-16">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="mb-12">
+          <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl text-4xl mb-8 animate-pulse-glow">
+            ℹ️
+          </div>
+          <h2 class="text-4xl md:text-6xl font-black mb-8 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+            About BASC Library
+          </h2>
+        </div>
+        
+        <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-12 transform hover:scale-105 transition-all duration-500">
+          <p class="text-xl md:text-2xl leading-relaxed text-slate-300 mb-8">
+            Established in 1984, BASC Library is a cornerstone of academic excellence in the Philippines, offering unparalleled resources for learning and research.
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2">40+</div>
+              <div class="text-slate-400">Years of Excellence</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-bold text-purple-400 mb-2">50K+</div>
+              <div class="text-slate-400">Books & Resources</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">24/7</div>
+              <div class="text-slate-400">Digital Access</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-32 px-6 md:px-16">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl md:text-6xl font-black mb-12 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+          Get in Touch
+        </h2>
+        
+        <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-12 max-w-2xl mx-auto transform hover:scale-105 transition-all duration-500">
+          <div class="space-y-8">
+            <div class="flex items-center justify-center space-x-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-xl">
+                📞
+              </div>
+              <div class="text-left">
+                <div class="text-lg font-semibold text-white mb-1">Phone</div>
+                <div class="text-slate-400">044 792 4409 / 044 816 7121</div>
+              </div>
+            </div>
+            
+            <div class="flex items-center justify-center space-x-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center text-xl">
+                📧
+              </div>
+              <div class="text-left">
+                <div class="text-lg font-semibold text-white mb-1">Email</div>
+                <a href="mailto:info@basc.edu.ph" class="text-blue-400 hover:text-blue-300 transition-colors">
+                  info@basc.edu.ph
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-12">
+            <button class="px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 bg-[length:200%_200%] animate-gradient font-semibold rounded-2xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
+              Send Message
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative py-12 px-6 border-t border-white/10 backdrop-blur-xl bg-slate-900/50">
+      <div class="max-w-7xl mx-auto text-center">
+        <div class="flex items-center justify-center space-x-4 mb-6">
+          <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-sm font-bold">
+            📚
+          </div>
+          <span class="text-xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+            BASC Library
+          </span>
+        </div>
+        <p class="text-slate-400">© 2025 BASC Library. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+          }
+        });
+      });
+
+      // Add scroll effect to header
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 100) {
+          header.classList.add('bg-slate-900/95');
+        } else {
+          header.classList.remove('bg-slate-900/95');
+        }
+      });
+    </script>
+  </body>
+</html>
